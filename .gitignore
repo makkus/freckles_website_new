@@ -1,0 +1,6 @@
+.vagrant
+accounts/admin.yaml
+config/security.yaml
+temp/
+themes/freckles-site-theme/.sass-cache
+themes/deliver/.sass-cache

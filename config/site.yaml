@@ -1,0 +1,71 @@
+title: freckles!
+default_lang: en
+author:
+  name: 'Markus Binsteiner'
+  image_comment: 'Gotta find a picture where I wear a suit. Gotta impress potential employers...'
+  email: makkus@posteo.de
+  mission: '<p>Consolidating complexity. Trying to, anyway.</p><p>This blog contains mostly documentation that is not really documentation, but still somehow relevant to my programming projects.</p>'
+  copyright: 'Copyright 2017 Markus Binsteiner. All Rights Reserved.'
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'The freckles project home.'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog
+social:
+  -
+    url: 'mailto:makkus@posteo.de'
+    icon: envelope
+    color: '#ffcc00ff'
+  -
+    url: 'https://github.com/makkus/freckles'
+    icon: github
+    color: '#ff9955ff'
+  -
+    url: blog.rss
+    icon: rss
+    color: '#afdde9ff'
+
+othermenu:
+  -
+    text: About
+    url: about
+  -
+    text: Contact
+    url: contact
+
+quicklinks:
+  -
+    text: Blog
+    url: 'base_url:blog'
+  -
+    text: Code
+    url: 'https://github.com/makkus/freckles'
+  -
+    text: Documentation
+    url: 'https://docs.freckles.io'
+
+header_options:
+  arrows: 'true'
+  autoslide: 'false'
+  autoslideHoverStop: 'false'
+  interval: '2000'
+  loop: 'false'
+  transition: zoom
+  itemsForSlide: '0'
+  touch: 'true'
+  swipe: 'true'
+footer:
+  description: "the home of the 'freckles' project"
+  contact_title: 'Contact Info'
+  links_title: 'Quick Links'
+  # newsletter_title: Newsletter
+  # newsletter_description: 'Etiam porta sem malesuada magna mollis euismod.'
+  copyright_text: 'Copyright 2017 Markus Binsteiner. All Rights Reserved.'
+  feedburner: ''

@@ -1,0 +1,12 @@
+- freckle:
+    owner: vagrant
+    group: vagrant
+
+- grav:
+    grav_domain: 127.0.0.1
+    grav_webserver_port: 8280
+    # grav_skeleton: none
+    # grav_skeleton: https://getgrav.org/download/core/grav-admin/1.3.10
+    # grav_skeleton: open-publishing-space-site/1.1.2
+    # grav_skeleton: https://getgrav.org/download/skeletons/mache-site/1.0.3
+    # grav_letsencrypt_email: none
