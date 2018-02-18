@@ -1,0 +1,224 @@
+oot@localhost:~# freckelize -r frkl:seafile -f blueprint:seasfile_mysql -t /var/lib/freckles
+
+# using runtime context repo(s):
+
+ - frkl:seafile
+     -> remote: 'https://github.com/freckles-io/seafile.git'
+     -> local: '/root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile'
+ * NOTE: don't rely on abbreviated urls for anything important as that feature might change in a future release, use full urls if in doubt
+
+
+# processing extra repos...
+
+* starting tasks (on 'localhost')...
+ * applying role 'freckles-io.freckles-config'......
+   - check existing folder => ok (no change)
+   - load config file => ok (no change)
+   - checking out extra repos =>
+       - https://github.com/freckles-io/seafile.git -> /root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile => ok (changed)
+   => ok (changed)
+
+# using freckle repo/folder(s):
+
+ - blueprint:seasfile_mysql
+
+# starting ansible run(s)...
+
+No blueprint with name 'seasfile_mysql' available.
+Exiting...
+root@localhost:~# freckelize -r frkl:seafile -f blueprint:seafile_mysql -t /var/lib/freckles
+
+# using runtime context repo(s):
+
+ - frkl:seafile
+     -> remote: 'https://github.com/freckles-io/seafile.git'
+     -> local: '/root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile'
+ * NOTE: don't rely on abbreviated urls for anything important as that feature might change in a future release, use full urls if in doubt
+
+
+# processing extra repos...
+
+* starting tasks (on 'localhost')...
+ * applying role 'freckles-io.freckles-config'......
+   - check existing folder => ok (no change)
+   - load config file => ok (no change)
+   - checking out extra repos =>
+       - https://github.com/freckles-io/seafile.git -> /root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile => ok (no change)
+   => ok (no change)
+
+# using freckle repo/folder(s):
+
+ - blueprint:seafile_mysql
+
+# starting ansible run(s)...
+
+Found interactive blueprint, please enter approriate values below:
+
+freckle_folder_name [seafile]:
+seafile_admin_email [admin@localhost.home]: makkus@posteo.de
+seafile_domain [127.0.0.1]: example.frkl.io
+seafile_server_name [seafile]: my_seafile
+seafile_webserver_port [80]:
+Select request_https_cert:
+1 - false
+2 - true
+Choose from 1, 2 [1]: 2
+
+* starting tasks (on 'localhost')...
+ * applying role 'freckles-io.box-basics'......
+   - update apt cache (ignoring errors) => ok (no change)
+   - ensure python-apt and rsync are installed => ok (changed)
+   => ok (changed)
+
+* starting tasks (on 'localhost')...
+ * checking out freckle(s)...
+   - install required package managers => ok (no change)
+   - rsyncing '/tmp/frkl.cSPfHx/seafile' to '/var/li...ok (changed)
+   - deleting blueprint source => ok (changed)
+   - creating group 'seafile' for folder '/var/lib/f...ok (changed)
+   - creating user 'seafile for folder '/var/lib/fre...ok (changed)
+   - setting owner for folder '/var/lib/freckles/sea...ok (changed)
+   - creating group 'mysql' for folder '/var/lib/fre...ok (changed)
+   - creating user 'mysql for folder '/var/lib/freck...ok (changed)
+   - setting owner for folder '/var/lib/freckles/sea...ok (changed)
+   - installing stow =>
+       - stow (using: apt) => ok (changed)
+   -  => ok (no change)
+   - stowing freckle folders => ok (changed)
+   => ok (changed)
+
+# no adapters specified, using defaults from .freckle file:
+
+  - mysql: /root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile/adapters/mysql
+  - seafile: /root/.local/freckles/repos/https/github.com/freckles-io/seafile.git/seafile/adapters/seafile
+
+* starting tasks (on 'localhost')...
+ * starting to process freckle(s)...
+   - install required package managers => ok (no change)
+   - starting adapter 'mysql' => ok (no change)
+   - Include OS-specific variables. =>
+       - /root/.local/freckles/runs/archive/run_180123_10_17_51/roles/internal/geerlingguy.mysql/vars/Debian.yml => ok (no change)
+   - Define mysql_packages. => ok (no change)
+   - Define mysql_daemon. => ok (no change)
+   - Define mysql_slow_query_log_file. => ok (no change)
+   - Define mysql_log_error. => ok (no change)
+   - Define mysql_syslog_tag. => ok (no change)
+   - Define mysql_pid_file. => ok (no change)
+   - Define mysql_config_file. => ok (no change)
+   - Define mysql_config_include_dir. => ok (no change)
+   - Define mysql_socket. => ok (no change)
+   - Define mysql_supports_innodb_large_prefix. => ok (no change)
+   -  => ok (no change)
+   - Check if MySQL is already installed. => ok (no change)
+   - Update apt cache if MySQL is not yet installed....ok (changed)
+   - Ensure MySQL Python libraries are installed. => ok (changed)
+   - Ensure MySQL packages are installed. =>
+       - [u'mysql-common', u'mysql-server'] => ok (changed)
+   - Ensure MySQL is stopped after initial install. => ok (changed)
+   - Delete innodb log files created by apt package ...
+       - ib_logfile0 => ok (changed)
+       - ib_logfile1 => ok (changed)
+   - Check if MySQL packages were installed. => ok (no change)
+   - Copy my.cnf global MySQL configuration. => ok (changed)
+   - Create datadir if it does not exist => ok (no change)
+   - Create error log file (if configured). => ok (changed)
+   - Set ownership on error log file (if configured)...ok (changed)
+   - Ensure MySQL is started and enabled on boot. => ok (changed)
+   - Get MySQL version. => ok (no change)
+   - Disallow root login remotely =>
+       - DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1') => ok (no change)
+   - Get list of hosts for the root user. => ok (no change)
+   - Update MySQL root password for localhost root a...
+       - localhost => ok (changed)
+   - Copy .my.cnf file with root password credential...ok (changed)
+   - Get list of hosts for the anonymous user. => ok (no change)
+   - Remove MySQL test database. => ok (no change)
+   - Ensure MySQL databases are present. =>
+       - ccnet-db => ok (changed)
+       - seafile-db => ok (changed)
+       - seahub-db => ok (changed)
+   - Ensure MySQL users are present. =>
+       - None => ok (no change)
+   - starting adapter 'seafile' => ok (no change)
+   - creating seafile group => ok (no change)
+   - creating seafile user => ok (no change)
+   - creating seafile package dir => ok (changed)
+   - downloading seafile server package => ok (changed)
+   - extracting downloaded file to '/var/lib/freckle...ok (changed)
+   - create seafile config directory => ok (changed)
+   - changing application file permissions => ok (changed)
+   - installing dependencies =>
+       - sudo => ok (no change)
+       - python => ok (no change)
+       - python2.7 => ok (no change)
+       - libpython2.7 => ok (no change)
+       - python-setuptools => ok (changed)
+       - python-imaging => ok (changed)
+       - python-ldap => ok (changed)
+       - python-urllib3 => ok (changed)
+       - ffmpeg => ok (changed)
+       - python-pip => ok (changed)
+       - python-memcache => ok (changed)
+       - python-mysqldb => ok (no change)
+   - installing pip dependencies =>
+       - pillow => ok (no change)
+       - moviepy => ok (changed)
+   - running setupscript (for mysql backend) => ok (changed)
+   - creating seafile systemd service file => ok (no change)
+   - create service directories =>
+       - /etc/default => ok (no change)
+       - /etc/systemd/system => ok (no change)
+   - write default configuration for service => ok (changed)
+   - adds systemd entry for service => ok (changed)
+   - reload systemctl manager configuration => ok (changed)
+   - creating seahub systemd service file => ok (no change)
+   - create service directories =>
+       - /etc/default => ok (no change)
+       - /etc/systemd/system => ok (no change)
+   - write default configuration for service => ok (changed)
+   - adds systemd entry for service => ok (changed)
+   - reload systemctl manager configuration => ok (changed)
+   - setting external url (ccnet): 'https://example....ok (changed)
+   - setting external url (seahub): 'https://example...ok (changed)
+   - enabling webdav => ok (changed)
+   - setting webdav share name (for nginx) => ok (changed)
+   - adding webdav location to nginx => ok (no change)
+   - enabling and starting seafile service => ok (changed)
+   - enabling and starting seahub service => ok (changed)
+   - managing https certificate for example.frkl.io => ok (no change)
+   -  =>
+       - /root/.local/freckles/runs/archive/run_180123_10_17_51/roles/internal/thefinn93.letsencrypt/vars/../vars/default.yml => ok (no change)
+   - update the apt cache => ok (no change)
+   - install certbot =>
+       - [u'certbot'] => ok (changed)
+   - change the path to letsencrypt => ok (no change)
+   - Ensure webroot exists => ok (changed)
+   - Attempt to get the certificate using the webroo...failed: non-zero return code
+   - Attempt to get the certificate using the standa...ok (changed)
+   - Fix the renewal file =>
+       - {u'key': u'hsts', u'value': False} => ok (changed)
+       - {u'key': u'authenticator', u'value': u'webroot'} => ok (changed)
+       - {u'key': u'verb', u'value': u'certonly'} => ok (changed)
+       - {u'key': u'noninteractive_mode', u'value': False} => ok (changed)
+       - {u'key': u'os_packages_only', u'value': False} => ok (changed)
+       - {u'key': u'uir', u'value': False} => ok (changed)
+   - Fix the webroot map in the renewal file =>
+       - example.frkl.io => ok (changed)
+   - Install renewal cron => ok (changed)
+   - setting https nginx options => ok (no change)
+   - adding http -> https redirect => ok (no change)
+   - installing and configuring nginx => ok (no change)
+   - Include OS-specific variables. => ok (no change)
+   - Define nginx_user. => ok (no change)
+   - Update apt cache. => ok (no change)
+   - Ensure nginx is installed. => ok (changed)
+   - Remove default nginx vhost config file (if conf...ok (changed)
+   - Ensure nginx_vhost_path exists. => ok (no change)
+   - Add managed vhost config files. =>
+       - {u'filename': u'example.frkl.io.80.conf', u'return': u'301 https://example.frkl.io$request_uri', u'server_name': u'example.frkl.io', u'listen': u'80'} => ok (changed)
+       - {u'extra_parameters': u'proxy_set_header X-Forwarded-For $remote_addr;\nlocation / {\n  proxy_pass         http://127.0.0.1:8000;\n  proxy_set_header   Host $http_host;\n  proxy_set_header   X-Real-IP $remote_addr;\n  proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;\n  proxy_set_header   X-Forwarded-Host $server_name;\n  proxy_read_timeout  1200s;\n\n  # used for view/edit office file via Office Online Server\n  client_max_body_size 0;\n\n  access_log      /var/log/nginx/seahub.access.log;\n  error_log       /var/log/nginx/seahub.error.log;\n}\n\nlocation /seafhttp {\n  rewrite ^/seafhttp(.*)$ $1 break;\n  proxy_pass http://127.0.0.1:8082;\n  client_max_body_size 0;\n\n  proxy_connect_timeout  36000s;\n  proxy_read_timeout  36000s;\n  proxy_send_timeout  36000s;\n\n  send_timeout  36000s;\n  proxy_request_buffering off;\n}\n\nlocation /media {\n  root /var/lib/freckles/seafile/seafile/seafile-server-latest/seahub;\n}\n\nlocation /seafdav {\n  proxy_pass         http://127.0.0.1:8080;\n  proxy_set_header   Host $host;\n  proxy_set_header   X-Real-IP $remote_addr;\n  proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;\n  proxy_set_header   X-Forwarded-Host $server_name;\n  client_max_body_size 0;\n  proxy_connect_timeout  36000s;\n  proxy_read_timeout  36000s;\n  proxy_send_timeout  36000s;\n  send_timeout  36000s;\n  # This option is only available for Nginx >= 1.8.0. See more details below.\n  proxy_request_buffering off;\n  access_log      /var/log/nginx/seafdav.access.log;\n  error_log       /var/log/nginx/seafdav.error.log;\n}\n\n\nssl_certificate      /etc/letsencrypt/live/example.frkl.io/fullchain.pem;\nssl_certificate_key  /etc/letsencrypt/live/example.frkl.io/privkey.pem;\nssl_trusted_certificate   /etc/letsencrypt/live/example.frkl.io/fullchain.pem;\nssl_protocols        TLSv1.1 TLSv1.2;\nssl_ciphers          HIGH:!aNULL:!MD5;\n', u'server_name': u'example.frkl.io', u'listen': u'443 ssl http2'} => ok (changed)
+   - Remove legacy vhosts.conf file. => ok (no change)
+   - Copy nginx configuration in place. => ok (changed)
+   - Ensure nginx is started and enabled to start at... [WARNING]: Ignoring "sleep" as it is not used in "systemd"
+ok (changed)
+   => ok (changed)

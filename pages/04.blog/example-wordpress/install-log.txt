@@ -1,0 +1,236 @@
+root@localhost:~# bash <(curl https://inaugurate.sh) freckelize -r frkl:wordpress -f blueprint:wordpress -t /var/lib/freckles
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 28325  100 28325    0     0  57773      0 --:--:-- --:--:-- --:--:-- 57688
+
+'freckelize' not found in path, inaugurating...
+
+  * elevated permissions detected, using sytem package manager to install dependencies
+  * Debian-based system detected
+  * updating apt cache
+  * installing dependencies: curl build-essential git python-dev python-virtualenv virtualenv libssl-dev libffi-dev
+  * creating 'inaugurate' virtual environment
+    -> installing 'freckles' into venv: /root/.local/inaugurate/virtualenvs/inaugurate
+
+
+Bootstrapping finished, now attempting to run 'freckelize' (like so: 'freckelize -r frkl:wordpress -f blueprint:wordpress -t /var/lib/freckles')
+
+========================================================================
+
+
+# using runtime context repo(s):
+
+ - frkl:wordpress
+     -> remote: 'https://github.com/freckles-io/wordpress.git'
+     -> local: '/root/.local/freckles/repos/https/github.com/freckles-io/wordpress.git/wordpress'
+ * NOTE: don't rely on abbreviated urls for anything important as that feature might change in a future release, use full urls if in doubt
+
+
+# processing extra repos...
+
+* starting tasks (on 'localhost')...
+ * applying role 'freckles-io.freckles-config'......
+   - check existing folder => ok (no change)
+   - load config file => ok (no change)
+   - checking out extra repos =>
+       - https://github.com/freckles-io/wordpress.git -> /root/.local/freckles/repos/https/github.com/freckles-io/wordpress.git/wordpress => ok (changed)
+   => ok (changed)
+
+# using freckle repo/folder(s):
+
+ - blueprint:wordpress
+
+# starting ansible run(s)...
+
+Found interactive blueprint, please enter approriate values below:
+
+freckle_folder_name [wordpress]:
+wordpress_domain [localhost]: example.frkl.io
+wordpress_port [80]:
+lets_encrypt_email [none]: makkus@posteo.de
+
+* starting tasks (on 'localhost')...
+ * applying role 'freckles-io.box-basics'......
+   - update apt cache (ignoring errors) => ok (no change)
+   - ensure python-apt and rsync are installed => ok (changed)
+   => ok (changed)
+
+* starting tasks (on 'localhost')...
+ * checking out freckle(s)...
+   - installing required package managers => ok (no change)
+   - rsyncing '/tmp/frkl.vIrQoZ/wordpress' to '/var/lib/freckles/wordpress' => ok (changed)
+   - deleting blueprint source => ok (changed)
+   - creating group 'mysql' for folder '/var/lib/freckles/wordpress/mysql' => ok (no change)
+   - creating user 'mysql for folder '/var/lib/freckles/wordpress/mysql' => ok (no change)
+   - setting owner for folder '/var/lib/freckles/wordpress/mysql' to be 'mysql' => ok (changed)
+   - creating group 'www-data' for folder '/var/lib/freckles/wordpress/wordpress' => ok (no change)
+   - creating user 'www-data for folder '/var/lib/freckles/wordpress/wordpress' => ok (no change)
+   - setting owner for folder '/var/lib/freckles/wordpress/wordpress' to be 'www-data' => ok (changed)
+   - installing stow =>
+       - stow (using: apt) => ok (no change)
+   -  => ok (no change)
+   - stowing freckle folders => ok (no change)
+   - installing stow =>
+       - stow (using: apt) => ok (no change)
+   -  => ok (no change)
+   - stowing freckle folders => ok (changed)
+   => ok (changed)
+
+# no adapters specified, using defaults from .freckle file:
+
+  - mysql: /root/.local/freckles/repos/https/github.com/freckles-io/wordpress.git/wordpress/adapters/mysql
+  - wordpress: /root/.local/freckles/repos/https/github.com/freckles-io/wordpress.git/wordpress/adapters/wordpress
+
+* starting tasks (on 'localhost')...
+ * starting to process freckle(s)...
+   - installing required package managers => ok (no change)
+   - executing generic freckle tasks => ok (no change)
+   - starting adapter 'mysql' => ok (no change)
+   - Include OS-specific variables. =>
+       - /root/.local/freckles/runs/archive/run_180202_04_13_48/roles/internal/geerlingguy.mysql/vars/Debian.yml => ok (no change)
+   - Define mysql_packages. => ok (no change)
+   - Define mysql_daemon. => ok (no change)
+   - Define mysql_slow_query_log_file. => ok (no change)
+   - Define mysql_log_error. => ok (no change)
+   - Define mysql_syslog_tag. => ok (no change)
+   - Define mysql_pid_file. => ok (no change)
+   - Define mysql_config_file. => ok (no change)
+   - Define mysql_config_include_dir. => ok (no change)
+   - Define mysql_socket. => ok (no change)
+   - Define mysql_supports_innodb_large_prefix. => ok (no change)
+   -  => ok (no change)
+   - Check if MySQL is already installed. => ok (no change)
+   - Update apt cache if MySQL is not yet installed. => ok (changed)
+   - Ensure MySQL Python libraries are installed. => ok (changed)
+   - Ensure MySQL packages are installed. =>
+       - [u'mysql-common', u'mysql-server'] => ok (changed)
+   - Ensure MySQL is stopped after initial install. => ok (changed)
+   - Delete innodb log files created by apt package after initial install. =>
+       - ib_logfile0 => ok (changed)
+       - ib_logfile1 => ok (changed)
+   - Check if MySQL packages were installed. => ok (no change)
+   - Copy my.cnf global MySQL configuration. => ok (changed)
+   - Create datadir if it does not exist => ok (no change)
+   - Create error log file (if configured). => ok (changed)
+   - Set ownership on error log file (if configured). => ok (changed)
+   - Ensure MySQL is started and enabled on boot. => ok (changed)
+   - Get MySQL version. => ok (no change)
+   - Disallow root login remotely =>
+       - DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1') => ok (no change)
+   - Get list of hosts for the root user. => ok (no change)
+   - Update MySQL root password for localhost root account (< 5.7.x). =>
+       - localhost => ok (changed)
+   - Copy .my.cnf file with root password credentials. => ok (changed)
+   - Get list of hosts for the anonymous user. => ok (no change)
+   - Remove MySQL test database. => ok (no change)
+   - Ensure MySQL databases are present. =>
+       - wp_database => ok (changed)
+   - Ensure MySQL users are present. =>
+       - None => ok (changed)
+   - starting adapter 'wordpress' => ok (no change)
+   - installing adapter requirements =>
+       - curl (using: apt) => ok (no change)
+   - managing https certificate for example.frkl.io => ok (no change)
+   -  =>
+       - /root/.local/freckles/runs/archive/run_180202_04_13_48/roles/internal/thefinn93.letsencrypt/vars/../vars/default.yml => ok (no change)
+   - update the apt cache => ok (no change)
+   - install certbot =>
+       - [u'certbot'] => ok (changed)
+   - change the path to letsencrypt => ok (no change)
+   - Ensure webroot exists => ok (no change)
+   - Attempt to get the certificate using the webroot authenticator => failed: non-zero return code
+   - Attempt to get the certificate using the standalone authenticator (in case eg the webserver...ok (changed)
+   - Fix the renewal file =>
+       - {u'key': u'hsts', u'value': False} => ok (changed)
+       - {u'key': u'authenticator', u'value': u'webroot'} => ok (changed)
+       - {u'key': u'verb', u'value': u'certonly'} => ok (changed)
+       - {u'key': u'noninteractive_mode', u'value': False} => ok (changed)
+       - {u'key': u'os_packages_only', u'value': False} => ok (changed)
+       - {u'key': u'uir', u'value': False} => ok (changed)
+   - Fix the webroot map in the renewal file =>
+       - example.frkl.io => ok (changed)
+   - Install renewal cron => ok (changed)
+   - Include OS-specific variables. => ok (no change)
+   - Define php_packages. => ok (no change)
+   - Define extra php_packages. => ok (no change)
+   - Define php_webserver_daemon. => ok (no change)
+   - Define php_conf_paths. => ok (no change)
+   - Define php_extension_conf_paths. => ok (no change)
+   - Define php_apc_conf_filename. => ok (no change)
+   - Define php_opcache_conf_filename. => ok (no change)
+   - Define php_fpm_conf_path. => ok (no change)
+   -  => ok (no change)
+   - Update apt cache. => ok (no change)
+   - Ensure PHP packages are installed. =>
+       - [u'php7.0-common', u'php7.0-cli', u'php7.0-dev', u'php7.0-fpm', u'libpcre3-dev', u'php7.0-gd', u'php7.0-curl', u'php7.0-imap', u'php7.0-json', u'php7.0-opcache', u'php7.0-xml', u'php7.0-mbstring', u'php-sqlite3', u'php-apcu', u'php-zip', u'php-curl', u'php-gd', u'php-mbstring', u'php-mcrypt', u'php-xml', u'php-xmlrpc', u'libapache2-mod-php', u'php-mysql'] => ok (changed)
+   - Delete APCu configuration file if this role will provide one. =>
+       - /etc/php/7.0/fpm/conf.d => ok (changed)
+       - /etc/php/7.0/apache2/conf.d => ok (changed)
+       - /etc/php/7.0/cli/conf.d => ok (changed)
+   - Delete OpCache configuration file if this role will provide one. =>
+       - /etc/php/7.0/fpm/conf.d => ok (no change)
+       - /etc/php/7.0/apache2/conf.d => ok (no change)
+       - /etc/php/7.0/cli/conf.d => ok (no change)
+   -  => ok (no change)
+   - Ensure configuration directories exist. =>
+       - /etc/php/7.0/fpm => ok (no change)
+       - /etc/php/7.0/apache2 => ok (no change)
+       - /etc/php/7.0/cli => ok (no change)
+       - /etc/php/7.0/fpm/conf.d => ok (no change)
+       - /etc/php/7.0/apache2/conf.d => ok (no change)
+       - /etc/php/7.0/cli/conf.d => ok (no change)
+   - Place PHP configuration file in place. =>
+       - /etc/php/7.0/fpm => ok (changed)
+       - /etc/php/7.0/apache2 => ok (changed)
+       - /etc/php/7.0/cli => ok (changed)
+   -  => ok (no change)
+   - Check for existing APCu config files. =>
+       - /etc/php/7.0/fpm/conf.d => ok (no change)
+       - /etc/php/7.0/apache2/conf.d => ok (no change)
+       - /etc/php/7.0/cli/conf.d => ok (no change)
+   - Ensure APCu config file is present. =>
+       - /etc/php/7.0/fpm/conf.d => ok (changed)
+       - /etc/php/7.0/apache2/conf.d => ok (changed)
+       - /etc/php/7.0/cli/conf.d => ok (changed)
+   -  => ok (no change)
+   - Check for existing OpCache config files. =>
+       - /etc/php/7.0/fpm/conf.d => ok (no change)
+       - /etc/php/7.0/apache2/conf.d => ok (no change)
+       - /etc/php/7.0/cli/conf.d => ok (no change)
+   - Ensure OpCache config file is present. =>
+       - /etc/php/7.0/fpm/conf.d => ok (changed)
+       - /etc/php/7.0/apache2/conf.d => ok (changed)
+       - /etc/php/7.0/cli/conf.d => ok (changed)
+   -  => ok (no change)
+   - Define php_fpm_daemon. => ok (no change)
+   - Define php_fpm_pool_conf_path. => ok (no change)
+   - Define php_fpm_pool_user. => ok (no change)
+   - Define php_fpm_pool_group. => ok (no change)
+   - Stat php_fpm_pool_conf_path => ok (no change)
+   - Include OS-specific variables. => ok (no change)
+   - Define apache_packages. => ok (no change)
+   -  => ok (no change)
+   - Update apt cache. => ok (no change)
+   - Ensure Apache is installed on Debian. =>
+       - [u'apache2', u'apache2-utils'] => ok (no change)
+   - Get installed version of Apache. => ok (no change)
+   - Create apache_version variable. => ok (no change)
+   -  => ok (no change)
+   - Configure Apache. =>
+       - {u'regexp': u'^Listen ', u'line': u'Listen 80'} => ok (no change)
+   - Enable Apache mods. =>
+       - rewrite.load => ok (changed)
+       - php7.0.load => ok (changed)
+       - ssl.load => ok (changed)
+   - Check whether certificates defined in vhosts exist. =>
+       - {u'allow_override': u'All', u'servername': u'example.frkl.io', u'certificate_key_file': u'/etc/letsencrypt/live/example.frkl.io/privkey.pem', u'certificate_chain_file': u'/etc/letsencrypt/live/example.frkl.io/fullchain.pem', u'documentroot': u'/var/www/wordpress', u'certificate_file': u'/etc/letsencrypt/live/example.frkl.io/cert.pem'} => ok (no change)
+   - Add apache vhosts configuration. => ok (changed)
+   - Add vhost symlink in sites-enabled. => ok (changed)
+   - Remove default vhost in sites-enabled. => ok (changed)
+   - Ensure Apache has selected state and enabled on boot. => ok (no change)
+   -  => ok (changed)
+   - downloading and extracting wordpress => ok (changed)
+   - changing wordpress directory permissions => ok (changed)
+   - changing wordpress file permissions =>  [WARNING]: Ignoring "sleep" as it is not used in "systemd"
+ok (changed)
+   => ok (changed)
