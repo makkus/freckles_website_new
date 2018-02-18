@@ -1,0 +1,13 @@
+name: Freckles Site Theme
+version: 0.1.0
+description: Theme for freckles project home.
+icon: rebel
+author:
+  name: Markus Binsteiner
+  email: makkus@posteo.de
+homepage: https://github.com/markus-binsteiner/grav-theme-freckles-site-theme
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/markus-binsteiner/grav-theme-freckles-site-theme/issues
+readme: https://github.com/markus-binsteiner/grav-theme-freckles-site-theme/blob/develop/README.md
+license: MIT

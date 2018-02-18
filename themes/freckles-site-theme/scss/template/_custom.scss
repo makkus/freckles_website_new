@@ -1,0 +1,43 @@
+// Your custom SCSS should be written here...
+
+.authorbox {
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #d3d5d7;
+    -webkit-box-shadow: 0 0 5px 0 #e2e3e4;
+    -moz-box-shadow: 0 0 5px 0 #e2e3e4;
+    box-shadow: 0 0 5px 0 #e2e3e4;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 30px 30px 35px;
+    border-radius: 5%;
+}
+
+.authorbox img {
+    background: #fff;
+    border-radius: 100%;
+}
+
+.quickstart {
+    background-color: #ffe680ff;
+}
+
+.quickstart pre {
+    text-align: left;
+}
+
+
+
+// .header-lite #logo {
+    // background-image: url('/images/freckles_logo_wide.png');
+    // background-size: 240px;
+    // background-repeat: no-repeat;
+    //background: transparentize($light-gray, 0.8);
+    //background: red;
+    //border-radius: 100%;
+// }
+
+// .header-lite #logo a {
+    // padding-left: 64px;
+    //color: #37abc8ff;
+// }
