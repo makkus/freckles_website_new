@@ -1,45 +1,30 @@
-# Deliver Skeleton for Grav
+# Source code for 'freckles' website
 
-![Deliver](assets/readme_1.png)
+This is the source code for [the 'freckles' website](https://freckles.io). '*freckles*' is a collection of open-source tools to help configuration management on single machines.
 
-Deliver skeleton is a port of the [Deliver](http://freebiesbug.com/psd-freebies/deliver-free-psd-theme/) by [Michael Reimer](http://www.bestpsdfreebies.com/). Whether you’re a creative looking to show off your portfolio, or a business looking to promote your company, this theme is for you.
+## How to setup a development environment (using Vagrant)
 
-# Features
+To setup a development environment for this project on your local machine, you can use *freckles* itself. It is recommended to use Vagrant so as to not have to setup PHP and a webserver directly on your development machine. *freckles* can help with that too:
 
-* Fully responsive
-* Automatic and custom navigation menus included
-* Showcase section with stunning animated slideshow module
-* Services grid with custom FontAwesome icons.
-* Portfolio grid with modal window popup previews for portfolio item details. Both frontpage (minimal) and full featured versions included.
-* Footer section with Feedburner subscription (feedburner id customizable in site config), custom menus, contact info and more.
-* About layout with social icons module and custom styling
-* Services layout with FontAwesome icons and pricing tables
-* Archive layout with blog posts archives list
-* Full featured blog with support for custom authors and jscomments
-* Contact us layout with Simple Form plugin support.
-* SCSS files included for deeper customization options
+    curl https://freckles.io | bash -s -- freckelize vagrant-dev -f gh:makkus/freckles_website_new
 
-## Basic Setup for a new Grav site
+This will check out this git repository, install Vagrant as well as VirtualBox. Once that is done, all we need to do is boot up the Vagrant box:
 
-The simplest way to install Deliver theme for Grav is to download and install the Deliver Skeleton package:
+    cd ~/freckles/freckles_website_new
+   vagrant up
+   
+This will download a vanilla Debian stretch Virtualbox image, boot it, then use -- again -- *freckles* itself to install all the necessary requirements into that virtual machine. Once that is finished, the development site can be accessed via:
 
-1. [Download Deliver Skeleton](http://getgrav.org/downloads/skeletons#extras)
-2. Simply unzip the package into your web root folder.
-3. Point your browser at the folder, job done!
+[http://localhost:8280](http://localhost:8280)
 
-**TIP:** Check out the [general Grav installation instructions](http://learn.getgrav.org/basics/installation) for more details on this process.
 
----
+## How to setup a production instance
 
-## Existing Grav site
+    curl https://freckles.io | bash -s -- freckelize -r frkl:grav -v gh:makkus/freckles_website_new/production.yml -f gh:makkus/freckles_website_new
 
-It is possible to install just the theme, but page content will need to reference the [Deliver theme](https://github.com/getgrav/grav-theme-deliver)'s supported templates.  It is strongly advised to at least install the Deliver Skeleton package to see the theme's capabilities in action.
+## Based on the 'deliver' theme for [Grav](https://getgrav.org)
 
-To install  **just** the theme:
-
-```
-$ bin/gpm install deliver
-```
-
+- [Deliver theme](https://github.com/getgrav/grav-theme-deliver)
+- [Deliver skeleton](http://getgrav.org/downloads/skeletons#extras)
 
 
