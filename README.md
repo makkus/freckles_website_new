@@ -11,7 +11,7 @@ To setup a development environment for this project on your local machine, you c
 This will check out this git repository, install Vagrant as well as VirtualBox. Once that is done, all we need to do is boot up the Vagrant box:
 
     cd ~/freckles/freckles_website_new
-   vagrant up
+    vagrant up
    
 This will download a vanilla Debian stretch Virtualbox image, boot it, then use -- again -- *freckles* itself to install all the necessary requirements into that virtual machine. Once that is finished, the development site can be accessed via:
 
