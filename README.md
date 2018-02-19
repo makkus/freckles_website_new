@@ -17,6 +17,7 @@ This will download a vanilla Debian stretch Virtualbox image, boot it, then use 
 
 [http://localhost:8280](http://localhost:8280)
 
+This will redirect you to the admin account creation page. The admin account details are not included in this repo (they are excluded via ``.gitignore``) as that would be a security issue. Just create your own dev admin account, and you should be good to go.
 
 ## How to setup a production instance
 
