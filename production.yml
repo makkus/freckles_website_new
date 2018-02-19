@@ -1,0 +1,7 @@
+- freckle:
+     owner: www-data
+     group: www-data
+
+- grav:
+     grav_letsencrypt_email: makkus@posteo.de
+     grav_domain: example.frkl.io
