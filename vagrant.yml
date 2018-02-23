@@ -6,3 +6,5 @@
     grav_domain: 127.0.0.1
     grav_webserver_port: 8280
     grav_letsencrypt_email: none
+    grav_dev: true
+

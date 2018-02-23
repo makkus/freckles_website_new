@@ -12,4 +12,4 @@ RUN  /root/.local/bin/frecklecute use-freckles-version git
 
 RUN  /root/.local/bin/freckelize -v /var/lib/freckles/website/docker.yml -r frkl:grav -f /var/lib/freckles/website
 
-CMD ["/opt/supervisord/bin/supervisord -c /etc/supervisor/supervisord.conf"]
+CMD ["/opt/supervisord/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
