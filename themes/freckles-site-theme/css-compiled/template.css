@@ -702,7 +702,7 @@ td {
       width: 100%; } }
 
 .three-column-bullet {
-  width: 33.3333333333%; }
+  width: 33.33333%; }
   @media only all and (max-width: 47.938em) {
     .three-column-bullet {
       width: 100%; } }
@@ -1756,7 +1756,8 @@ ul.pagination {
   border-radius: 100%; }
 
 .quickstart {
-  background-color: #ffe680ff; }
+  background-color: #ffe680ff;
+  /* background-color: #000000; */ }
 
 .quickstart pre {
   text-align: left; }
