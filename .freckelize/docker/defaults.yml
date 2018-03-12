@@ -1,0 +1,15 @@
+- freckle:
+    owner: freckles
+    group: freckles
+    freckle_docker: true
+
+- grav:
+    grav_domain: localhost
+    grav_port: 8280
+    grav_dev: true
+    grav_letsencrypt_email: none
+    grav_dev: true
+    grav_sass_src: "themes/freckles-site-theme/scss"
+    grav_sass_includes:
+      - "themes/deliver/scss"
+    grav_sass_poll: true
