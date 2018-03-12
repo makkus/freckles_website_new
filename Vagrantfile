@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    #wget -O - https://freckles.io | sudo bash -s -- frecklecute use-freckles-version git
     wget -O - https://freckles.io | sudo bash -s -- freckelize -v /vagrant/vagrant.yml -r frkl:grav -f /vagrant/
   SHELL
 end
